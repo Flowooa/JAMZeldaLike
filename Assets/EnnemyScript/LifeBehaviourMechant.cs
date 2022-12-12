@@ -22,13 +22,19 @@ public class LifeBehaviourMechant : MonoBehaviour
             Destroy(gameObject);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D  collision)
     {   
-        if(collision.gameObject.tag == "Ennemy")
+        if(collision.gameObject.tag == "Player")
          TakeDamage();
-        if (collision.gameObject.tag == "Bullet")
+        
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        
+        if (collision.gameObject.tag == "PlayerAttack")
             TakeDamage();
     }
+
 
 
     private void ModifyHealth(int modifier)
