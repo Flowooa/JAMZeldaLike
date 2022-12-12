@@ -1,4 +1,7 @@
 using UnityEngine;
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.Events;
 
 public class LifeBehaviour : MonoBehaviour
@@ -6,6 +9,14 @@ public class LifeBehaviour : MonoBehaviour
     public int maxHealth;
     public int startingHealth;
     public UnityEvent damageTaken;
+
+   
+    public GameObject Pcoeur1;
+    public GameObject Pcoeur2;
+    public GameObject Pcoeur3;
+
+    public bool JeMeMeurs = false;
+
 
     [HideInInspector] public int currentHealth;
 
@@ -18,8 +29,23 @@ public class LifeBehaviour : MonoBehaviour
     {
         ModifyHealth(-1);
         damageTaken.Invoke();
-        if(currentHealth <= 0)
-            Destroy(gameObject);
+        if (currentHealth <= 0)
+        {
+            Destroy(Pcoeur1);
+            JeMeMeurs = true;
+        }
+
+        if (currentHealth <= 2)
+        {
+            Destroy(Pcoeur3);
+        }
+
+        if (currentHealth <= 1)
+        {
+            Destroy(Pcoeur2);
+        }
+        
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -30,7 +56,21 @@ public class LifeBehaviour : MonoBehaviour
             TakeDamage();
     }
 
+    private void Update()
+    {
+        if (JeMeMeurs == true)
+        {
+            StartCoroutine(CestLaFinDesHaricots());
+        }
+    }
 
+    IEnumerator CestLaFinDesHaricots()
+    {
+        Debug.Log("OhNion");
+        yield return new WaitForSeconds(3);
+        Destroy(gameObject);
+
+    }
     private void ModifyHealth(int modifier)
     {
         currentHealth = Mathf.Clamp(currentHealth + modifier, 0, maxHealth);
