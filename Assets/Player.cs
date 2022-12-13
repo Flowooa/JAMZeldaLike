@@ -44,6 +44,15 @@ public partial class @Player : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""895d793c-8648-41a2-8c26-3296c562bc24"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -61,7 +70,7 @@ public partial class @Player : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""90e7ed07-9629-4913-a188-edbc36f69f90"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""path"": ""<Gamepad>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -178,6 +187,116 @@ public partial class @Player : IInputActionCollection2, IDisposable
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f4de9dc9-a97b-44a1-808a-25c8b9bfbdc7"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2c59e872-8b55-445f-9003-f3b4ded3e664"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""ManettePlayerMenu"",
+            ""id"": ""cd8b4cd9-2aa4-485f-8f2e-fa4294d0eb78"",
+            ""actions"": [
+                {
+                    ""name"": ""GameStart"",
+                    ""type"": ""Button"",
+                    ""id"": ""e0a19c54-d010-4fb9-8e67-441813733310"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ExitGame"",
+                    ""type"": ""Button"",
+                    ""id"": ""158f4fa4-bfde-4ae2-a032-898d1f199d14"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""AreYouSureY"",
+                    ""type"": ""Button"",
+                    ""id"": ""c43e9698-5173-4098-92b4-6855bfaaabcb"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""AreYouSureN"",
+                    ""type"": ""Button"",
+                    ""id"": ""b4281dcd-7203-4671-b492-306e738faee8"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""62e2cfe3-fff6-4b97-a6d1-9b0c2715dbb6"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GameStart"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3059915b-7048-41cc-98c4-667138d0fc8b"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ExitGame"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4170d304-f077-489f-af0b-0489e5650cba"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AreYouSureY"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""816a0a2d-99b2-4023-b56b-4632befe9a31"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AreYouSureN"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -188,6 +307,13 @@ public partial class @Player : IInputActionCollection2, IDisposable
         m_PlayerMovement = asset.FindActionMap("PlayerMovement", throwIfNotFound: true);
         m_PlayerMovement_Attack = m_PlayerMovement.FindAction("Attack", throwIfNotFound: true);
         m_PlayerMovement_Move = m_PlayerMovement.FindAction("Move", throwIfNotFound: true);
+        m_PlayerMovement_Pause = m_PlayerMovement.FindAction("Pause", throwIfNotFound: true);
+        // ManettePlayerMenu
+        m_ManettePlayerMenu = asset.FindActionMap("ManettePlayerMenu", throwIfNotFound: true);
+        m_ManettePlayerMenu_GameStart = m_ManettePlayerMenu.FindAction("GameStart", throwIfNotFound: true);
+        m_ManettePlayerMenu_ExitGame = m_ManettePlayerMenu.FindAction("ExitGame", throwIfNotFound: true);
+        m_ManettePlayerMenu_AreYouSureY = m_ManettePlayerMenu.FindAction("AreYouSureY", throwIfNotFound: true);
+        m_ManettePlayerMenu_AreYouSureN = m_ManettePlayerMenu.FindAction("AreYouSureN", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -249,12 +375,14 @@ public partial class @Player : IInputActionCollection2, IDisposable
     private IPlayerMovementActions m_PlayerMovementActionsCallbackInterface;
     private readonly InputAction m_PlayerMovement_Attack;
     private readonly InputAction m_PlayerMovement_Move;
+    private readonly InputAction m_PlayerMovement_Pause;
     public struct PlayerMovementActions
     {
         private @Player m_Wrapper;
         public PlayerMovementActions(@Player wrapper) { m_Wrapper = wrapper; }
         public InputAction @Attack => m_Wrapper.m_PlayerMovement_Attack;
         public InputAction @Move => m_Wrapper.m_PlayerMovement_Move;
+        public InputAction @Pause => m_Wrapper.m_PlayerMovement_Pause;
         public InputActionMap Get() { return m_Wrapper.m_PlayerMovement; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -270,6 +398,9 @@ public partial class @Player : IInputActionCollection2, IDisposable
                 @Move.started -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnMove;
                 @Move.performed -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnMove;
                 @Move.canceled -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnMove;
+                @Pause.started -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnPause;
+                @Pause.performed -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnPause;
+                @Pause.canceled -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnPause;
             }
             m_Wrapper.m_PlayerMovementActionsCallbackInterface = instance;
             if (instance != null)
@@ -280,13 +411,81 @@ public partial class @Player : IInputActionCollection2, IDisposable
                 @Move.started += instance.OnMove;
                 @Move.performed += instance.OnMove;
                 @Move.canceled += instance.OnMove;
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
             }
         }
     }
     public PlayerMovementActions @PlayerMovement => new PlayerMovementActions(this);
+
+    // ManettePlayerMenu
+    private readonly InputActionMap m_ManettePlayerMenu;
+    private IManettePlayerMenuActions m_ManettePlayerMenuActionsCallbackInterface;
+    private readonly InputAction m_ManettePlayerMenu_GameStart;
+    private readonly InputAction m_ManettePlayerMenu_ExitGame;
+    private readonly InputAction m_ManettePlayerMenu_AreYouSureY;
+    private readonly InputAction m_ManettePlayerMenu_AreYouSureN;
+    public struct ManettePlayerMenuActions
+    {
+        private @Player m_Wrapper;
+        public ManettePlayerMenuActions(@Player wrapper) { m_Wrapper = wrapper; }
+        public InputAction @GameStart => m_Wrapper.m_ManettePlayerMenu_GameStart;
+        public InputAction @ExitGame => m_Wrapper.m_ManettePlayerMenu_ExitGame;
+        public InputAction @AreYouSureY => m_Wrapper.m_ManettePlayerMenu_AreYouSureY;
+        public InputAction @AreYouSureN => m_Wrapper.m_ManettePlayerMenu_AreYouSureN;
+        public InputActionMap Get() { return m_Wrapper.m_ManettePlayerMenu; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(ManettePlayerMenuActions set) { return set.Get(); }
+        public void SetCallbacks(IManettePlayerMenuActions instance)
+        {
+            if (m_Wrapper.m_ManettePlayerMenuActionsCallbackInterface != null)
+            {
+                @GameStart.started -= m_Wrapper.m_ManettePlayerMenuActionsCallbackInterface.OnGameStart;
+                @GameStart.performed -= m_Wrapper.m_ManettePlayerMenuActionsCallbackInterface.OnGameStart;
+                @GameStart.canceled -= m_Wrapper.m_ManettePlayerMenuActionsCallbackInterface.OnGameStart;
+                @ExitGame.started -= m_Wrapper.m_ManettePlayerMenuActionsCallbackInterface.OnExitGame;
+                @ExitGame.performed -= m_Wrapper.m_ManettePlayerMenuActionsCallbackInterface.OnExitGame;
+                @ExitGame.canceled -= m_Wrapper.m_ManettePlayerMenuActionsCallbackInterface.OnExitGame;
+                @AreYouSureY.started -= m_Wrapper.m_ManettePlayerMenuActionsCallbackInterface.OnAreYouSureY;
+                @AreYouSureY.performed -= m_Wrapper.m_ManettePlayerMenuActionsCallbackInterface.OnAreYouSureY;
+                @AreYouSureY.canceled -= m_Wrapper.m_ManettePlayerMenuActionsCallbackInterface.OnAreYouSureY;
+                @AreYouSureN.started -= m_Wrapper.m_ManettePlayerMenuActionsCallbackInterface.OnAreYouSureN;
+                @AreYouSureN.performed -= m_Wrapper.m_ManettePlayerMenuActionsCallbackInterface.OnAreYouSureN;
+                @AreYouSureN.canceled -= m_Wrapper.m_ManettePlayerMenuActionsCallbackInterface.OnAreYouSureN;
+            }
+            m_Wrapper.m_ManettePlayerMenuActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @GameStart.started += instance.OnGameStart;
+                @GameStart.performed += instance.OnGameStart;
+                @GameStart.canceled += instance.OnGameStart;
+                @ExitGame.started += instance.OnExitGame;
+                @ExitGame.performed += instance.OnExitGame;
+                @ExitGame.canceled += instance.OnExitGame;
+                @AreYouSureY.started += instance.OnAreYouSureY;
+                @AreYouSureY.performed += instance.OnAreYouSureY;
+                @AreYouSureY.canceled += instance.OnAreYouSureY;
+                @AreYouSureN.started += instance.OnAreYouSureN;
+                @AreYouSureN.performed += instance.OnAreYouSureN;
+                @AreYouSureN.canceled += instance.OnAreYouSureN;
+            }
+        }
+    }
+    public ManettePlayerMenuActions @ManettePlayerMenu => new ManettePlayerMenuActions(this);
     public interface IPlayerMovementActions
     {
         void OnAttack(InputAction.CallbackContext context);
         void OnMove(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
+    }
+    public interface IManettePlayerMenuActions
+    {
+        void OnGameStart(InputAction.CallbackContext context);
+        void OnExitGame(InputAction.CallbackContext context);
+        void OnAreYouSureY(InputAction.CallbackContext context);
+        void OnAreYouSureN(InputAction.CallbackContext context);
     }
 }
