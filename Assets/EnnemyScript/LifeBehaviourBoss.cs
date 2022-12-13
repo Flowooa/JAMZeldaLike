@@ -25,18 +25,20 @@ public class LifeBehaviourBoss : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D  collision)
     {   
         if(collision.gameObject.tag == "Player")
-         TakeDamage();
-        
+        {
+            TakeDamage();
+        }
+
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         
-        if (collision.gameObject.tag == "PlayerAttack")
+        if (collision.gameObject.tag == "Player")
+        {
             TakeDamage();
+                
+        }        
     }
-
-
-
     private void ModifyHealth(int modifier)
     {
         currentHealth = Mathf.Clamp(currentHealth + modifier, 0, maxHealth);

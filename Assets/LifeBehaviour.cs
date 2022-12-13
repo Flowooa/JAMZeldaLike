@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Events;
+using Cinemachine;
 
 public class LifeBehaviour : MonoBehaviour
 {
@@ -15,6 +16,10 @@ public class LifeBehaviour : MonoBehaviour
     public GameObject Pcoeur2;
     public GameObject Pcoeur3;
 
+    [TagField]
+    public string taglist; 
+    
+
     public bool JeMeMeurs = false;
 
 
@@ -22,11 +27,23 @@ public class LifeBehaviour : MonoBehaviour
 
     private void Start()
     {
-        currentHealth = startingHealth;
+        
+       currentHealth = startingHealth;
+        
+        
+        /*
+        animator.SetInteger("bonjour",9);
+        animator.SetTrigger("TakeDamage");
+        */
+
     }
+
 
     private void TakeDamage()
     {
+        var animator = GetComponent<Animator>();
+        animator.SetTrigger("TakeDamage");
+
         ModifyHealth(-1);
         damageTaken.Invoke();
         if (currentHealth <= 0)
@@ -45,7 +62,7 @@ public class LifeBehaviour : MonoBehaviour
             Destroy(Pcoeur2);
         }
         
-
+        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -54,6 +71,10 @@ public class LifeBehaviour : MonoBehaviour
          TakeDamage();
         if (collision.gameObject.tag == "Bullet")
             TakeDamage();
+        if(collision.transform.TryGetComponent<Animator>(out var collisionAnimator))
+        {
+            collisionAnimator.SetTrigger("Aie");
+        }
     }
 
     private void Update()

@@ -7,7 +7,7 @@ public class PlayerAttack : MonoBehaviour
 {
     private bool att = true;
 
-    public GameObject HitBox;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +24,8 @@ public class PlayerAttack : MonoBehaviour
         if (att == true)
         {
             att = false;
-            GameObject go = Instantiate(HitBox.gameObject, transform.position, Quaternion.identity);
+            var animator = GetComponent<Animator>();
+            animator.SetTrigger("JeFrappe");
             yield return new WaitForSeconds(1);
             Debug.Log("C'estBonChacal");
 
