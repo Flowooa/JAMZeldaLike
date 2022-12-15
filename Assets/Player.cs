@@ -53,6 +53,42 @@ public partial class @Player : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""AttackUp"",
+                    ""type"": ""Button"",
+                    ""id"": ""cc2712d2-05cc-4e4d-87f7-89245532b93e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""AttackDown"",
+                    ""type"": ""Button"",
+                    ""id"": ""0c7fc04c-9a7c-4b5f-bfc8-3715eb72d697"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""AttackLeft"",
+                    ""type"": ""Button"",
+                    ""id"": ""77f47c67-487f-4c71-b10a-ca8af5fd8880"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""AttackRight"",
+                    ""type"": ""Button"",
+                    ""id"": ""577eb16f-6228-49cc-b778-2fc8ee42c3b5"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -209,6 +245,94 @@ public partial class @Player : IInputActionCollection2, IDisposable
                     ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6c36d056-58ed-4ccc-abcc-31dce1c6ac2c"",
+                    ""path"": ""<Gamepad>/rightStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AttackUp"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d72cafbc-7a99-44ae-98f1-54b8aa9cd15b"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AttackUp"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1f224138-8047-4e10-b803-b33a282d51ff"",
+                    ""path"": ""<Gamepad>/rightStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AttackDown"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a7ec5d75-b8dd-4123-8326-8e1640037252"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AttackDown"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""885596b0-7cac-4268-bac7-25a681b2d019"",
+                    ""path"": ""<Gamepad>/rightStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AttackLeft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""585cfb6c-5561-4c9a-af77-1f9c5e4f1b2d"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AttackLeft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a1651121-4add-44a9-a88c-74dcd23b281c"",
+                    ""path"": ""<Gamepad>/rightStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AttackRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""95623f71-b584-43c3-9489-6a859abed123"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AttackRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -308,6 +432,10 @@ public partial class @Player : IInputActionCollection2, IDisposable
         m_PlayerMovement_Attack = m_PlayerMovement.FindAction("Attack", throwIfNotFound: true);
         m_PlayerMovement_Move = m_PlayerMovement.FindAction("Move", throwIfNotFound: true);
         m_PlayerMovement_Pause = m_PlayerMovement.FindAction("Pause", throwIfNotFound: true);
+        m_PlayerMovement_AttackUp = m_PlayerMovement.FindAction("AttackUp", throwIfNotFound: true);
+        m_PlayerMovement_AttackDown = m_PlayerMovement.FindAction("AttackDown", throwIfNotFound: true);
+        m_PlayerMovement_AttackLeft = m_PlayerMovement.FindAction("AttackLeft", throwIfNotFound: true);
+        m_PlayerMovement_AttackRight = m_PlayerMovement.FindAction("AttackRight", throwIfNotFound: true);
         // ManettePlayerMenu
         m_ManettePlayerMenu = asset.FindActionMap("ManettePlayerMenu", throwIfNotFound: true);
         m_ManettePlayerMenu_GameStart = m_ManettePlayerMenu.FindAction("GameStart", throwIfNotFound: true);
@@ -376,6 +504,10 @@ public partial class @Player : IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerMovement_Attack;
     private readonly InputAction m_PlayerMovement_Move;
     private readonly InputAction m_PlayerMovement_Pause;
+    private readonly InputAction m_PlayerMovement_AttackUp;
+    private readonly InputAction m_PlayerMovement_AttackDown;
+    private readonly InputAction m_PlayerMovement_AttackLeft;
+    private readonly InputAction m_PlayerMovement_AttackRight;
     public struct PlayerMovementActions
     {
         private @Player m_Wrapper;
@@ -383,6 +515,10 @@ public partial class @Player : IInputActionCollection2, IDisposable
         public InputAction @Attack => m_Wrapper.m_PlayerMovement_Attack;
         public InputAction @Move => m_Wrapper.m_PlayerMovement_Move;
         public InputAction @Pause => m_Wrapper.m_PlayerMovement_Pause;
+        public InputAction @AttackUp => m_Wrapper.m_PlayerMovement_AttackUp;
+        public InputAction @AttackDown => m_Wrapper.m_PlayerMovement_AttackDown;
+        public InputAction @AttackLeft => m_Wrapper.m_PlayerMovement_AttackLeft;
+        public InputAction @AttackRight => m_Wrapper.m_PlayerMovement_AttackRight;
         public InputActionMap Get() { return m_Wrapper.m_PlayerMovement; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -401,6 +537,18 @@ public partial class @Player : IInputActionCollection2, IDisposable
                 @Pause.started -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnPause;
                 @Pause.performed -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnPause;
                 @Pause.canceled -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnPause;
+                @AttackUp.started -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnAttackUp;
+                @AttackUp.performed -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnAttackUp;
+                @AttackUp.canceled -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnAttackUp;
+                @AttackDown.started -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnAttackDown;
+                @AttackDown.performed -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnAttackDown;
+                @AttackDown.canceled -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnAttackDown;
+                @AttackLeft.started -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnAttackLeft;
+                @AttackLeft.performed -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnAttackLeft;
+                @AttackLeft.canceled -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnAttackLeft;
+                @AttackRight.started -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnAttackRight;
+                @AttackRight.performed -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnAttackRight;
+                @AttackRight.canceled -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnAttackRight;
             }
             m_Wrapper.m_PlayerMovementActionsCallbackInterface = instance;
             if (instance != null)
@@ -414,6 +562,18 @@ public partial class @Player : IInputActionCollection2, IDisposable
                 @Pause.started += instance.OnPause;
                 @Pause.performed += instance.OnPause;
                 @Pause.canceled += instance.OnPause;
+                @AttackUp.started += instance.OnAttackUp;
+                @AttackUp.performed += instance.OnAttackUp;
+                @AttackUp.canceled += instance.OnAttackUp;
+                @AttackDown.started += instance.OnAttackDown;
+                @AttackDown.performed += instance.OnAttackDown;
+                @AttackDown.canceled += instance.OnAttackDown;
+                @AttackLeft.started += instance.OnAttackLeft;
+                @AttackLeft.performed += instance.OnAttackLeft;
+                @AttackLeft.canceled += instance.OnAttackLeft;
+                @AttackRight.started += instance.OnAttackRight;
+                @AttackRight.performed += instance.OnAttackRight;
+                @AttackRight.canceled += instance.OnAttackRight;
             }
         }
     }
@@ -480,6 +640,10 @@ public partial class @Player : IInputActionCollection2, IDisposable
         void OnAttack(InputAction.CallbackContext context);
         void OnMove(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
+        void OnAttackUp(InputAction.CallbackContext context);
+        void OnAttackDown(InputAction.CallbackContext context);
+        void OnAttackLeft(InputAction.CallbackContext context);
+        void OnAttackRight(InputAction.CallbackContext context);
     }
     public interface IManettePlayerMenuActions
     {

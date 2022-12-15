@@ -65,15 +65,25 @@ public class LifeBehaviour : MonoBehaviour
         
     }
 
+
     private void OnCollisionEnter2D(Collision2D collision)
     {   
-        if(collision.gameObject.tag == "Ennemy")
+        if(collision.gameObject.tag == "Mechant")
          TakeDamage();
         if (collision.gameObject.tag == "Bullet")
             TakeDamage();
+
         if(collision.transform.TryGetComponent<Animator>(out var collisionAnimator))
         {
             collisionAnimator.SetTrigger("Aie");
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Pico")
+        {
+            TakeDamage();
         }
     }
 
@@ -88,7 +98,9 @@ public class LifeBehaviour : MonoBehaviour
     IEnumerator CestLaFinDesHaricots()
     {
         Debug.Log("OhNion");
-        yield return new WaitForSeconds(3);
+        var animator = GetComponent<Animator>();
+        animator.SetTrigger("Mort");
+        yield return new WaitForSeconds(1);
         Destroy(gameObject);
 
     }

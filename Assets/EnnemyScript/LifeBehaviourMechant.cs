@@ -33,6 +33,7 @@ public class LifeBehaviourMechant : MonoBehaviour
         
         if (collision.gameObject.tag == "Player")
             TakeDamage();
+
     }
 
 

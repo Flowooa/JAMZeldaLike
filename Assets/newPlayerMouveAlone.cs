@@ -23,4 +23,25 @@ public class newPlayerMouveAlone : MonoBehaviour
     {
         Moveput = cnt.ReadValue<Vector2>();
     }
+
+    public void NinjustsuUp (InputAction.CallbackContext cnt)
+    {
+        var animator = GetComponent<Animator>();
+        animator.SetTrigger("JeVaisEnHaut");
+    }
+    public void NinjustsuDown(InputAction.CallbackContext cnt)
+    {
+        var animator = GetComponent<Animator>();
+        animator.SetTrigger("JeVaisEnBas");
+    }
+    public void NinjustsuRight(InputAction.CallbackContext cnt)
+    {
+        var animator = GetComponent<Animator>();
+        animator.SetTrigger("JeVaisADroite");
+    }
+    public void NinjustsuLeft(InputAction.CallbackContext cnt)
+    {
+        var animator = GetComponent<Animator>();
+        animator.SetTrigger("JeVaisAGauche");
+    }
 }

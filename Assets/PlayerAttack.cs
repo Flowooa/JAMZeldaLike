@@ -28,7 +28,6 @@ public class PlayerAttack : MonoBehaviour
             animator.SetTrigger("JeFrappe");
             yield return new WaitForSeconds(1);
             Debug.Log("C'estBonChacal");
-
             att = true;
         }
        

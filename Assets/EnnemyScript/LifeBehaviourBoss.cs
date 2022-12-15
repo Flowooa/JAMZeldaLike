@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
+using System.Collections;
+using System.Collections.Generic;
 
 public class LifeBehaviourBoss : MonoBehaviour
 {
@@ -12,7 +14,39 @@ public class LifeBehaviourBoss : MonoBehaviour
     private void Start()
     {
         currentHealth = startingHealth;
+        StartCoroutine(ALanceGomme());
+        StartCoroutine(ACrayonne());
     }
+
+    IEnumerator ACrayonne()
+    {
+        var animator = GetComponent<Animator>();
+        animator.SetTrigger("Ecrit");
+        yield return new WaitForSeconds(10);
+        ReapeatACrayonne();
+    }
+
+    void ReapeatACrayonne()
+    {
+        StartCoroutine(ACrayonne());
+
+    }
+
+
+    IEnumerator ALanceGomme()
+    {
+        var animator = GetComponent<Animator>();
+        animator.SetTrigger("Tir");
+        yield return new WaitForSeconds(4);
+        ReapeatALanceGomme();
+
+    }
+
+    void ReapeatALanceGomme()
+    {
+        StartCoroutine(ALanceGomme());
+    }
+
 
     private void TakeDamage()
     {
@@ -30,6 +64,8 @@ public class LifeBehaviourBoss : MonoBehaviour
         }
 
     }
+
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         
