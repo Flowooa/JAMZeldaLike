@@ -2,6 +2,8 @@ using UnityEngine;
 using UnityEngine.Events;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
+
 
 public class LifeBehaviourBoss : MonoBehaviour
 {
@@ -20,6 +22,7 @@ public class LifeBehaviourBoss : MonoBehaviour
 
     IEnumerator ACrayonne()
     {
+        
         var animator = GetComponent<Animator>();
         animator.SetTrigger("Ecrit");
         yield return new WaitForSeconds(10);
@@ -39,8 +42,10 @@ public class LifeBehaviourBoss : MonoBehaviour
         animator.SetTrigger("Tir");
         yield return new WaitForSeconds(4);
         ReapeatALanceGomme();
-
     }
+
+
+
 
     void ReapeatALanceGomme()
     {
@@ -50,10 +55,31 @@ public class LifeBehaviourBoss : MonoBehaviour
 
     private void TakeDamage()
     {
+        var audio = GetComponent<AudioSource>();
+        audio.Play();
         ModifyHealth(-1);
         damageTaken.Invoke();
+
         if(currentHealth <= 0)
-            Destroy(gameObject);
+        {
+            StartCoroutine(AdieuMondeCruel());
+        }   
+
+            
+    }
+
+    IEnumerator AdieuMondeCruel()
+    {
+        var animator = GetComponent<Animator>();
+        animator.SetTrigger("Adieu");
+        yield return new WaitForSeconds(2);
+        CLaMort();
+    }
+
+    void CLaMort()
+    {
+        Destroy(gameObject);
+        SceneManager.LoadScene("Win");
     }
 
     private void OnCollisionEnter2D(Collision2D  collision)

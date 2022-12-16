@@ -1,5 +1,8 @@
 using UnityEngine;
 using UnityEngine.Events;
+using System.Collections;
+using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 
 public class LifeBehaviourMechant : MonoBehaviour
 {
@@ -12,14 +15,47 @@ public class LifeBehaviourMechant : MonoBehaviour
     private void Start()
     {
         currentHealth = startingHealth;
+        StartCoroutine(AVomi());
     }
 
+
+    IEnumerator AVomi()
+    {
+        var animator = GetComponent<Animator>();
+        animator.SetTrigger("Tir");
+        yield return new WaitForSeconds(2);
+        Encore();
+    }
+
+    void Encore()
+    {
+        StartCoroutine(AVomi());
+    }
     private void TakeDamage()
     {
+        var audio = GetComponent<AudioSource>();
+        audio.Play();
         ModifyHealth(-1);
         damageTaken.Invoke();
         if(currentHealth <= 0)
-            Destroy(gameObject);
+        {
+            StartCoroutine(AdieuMondeCruel());
+        }
+           
+    }
+    IEnumerator AdieuMondeCruel()
+    {
+        var animator = GetComponent<Animator>();
+        animator.SetTrigger("Mort");
+        yield return new WaitForSeconds(2);
+        CLaMort();
+    }
+
+    void CLaMort()
+    {
+        Destroy(gameObject);
+        
+
     }
 
     private void OnCollisionEnter2D(Collision2D  collision)

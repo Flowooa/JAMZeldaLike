@@ -12,11 +12,12 @@ public class BossShooter : MonoBehaviour
     {
         shooter = GetComponent<Shooter2D>();
         StartCoroutine(LanceGomme());
+        //Ca concerne pas ALanceGomme, j'avais la flemme de tout rename :/
     }
     IEnumerator LanceGomme()
     {
            shooter.Shoot();
-         yield return new WaitForSeconds(3);
+         yield return new WaitForSeconds(2);
 
              RepeatLanceGomme();
     }

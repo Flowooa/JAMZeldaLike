@@ -18,7 +18,7 @@ public class Move2D : MonoBehaviour
     IEnumerator JeVaisLoin()
     {
         Debug.Log("EtJeCours");
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(6);
         Destroy(gameObject);
 
     }

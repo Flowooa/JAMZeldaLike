@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Events;
 using Cinemachine;
+using UnityEngine.SceneManagement;
 
 public class LifeBehaviour : MonoBehaviour
 {
@@ -43,6 +44,9 @@ public class LifeBehaviour : MonoBehaviour
     {
         var animator = GetComponent<Animator>();
         animator.SetTrigger("TakeDamage");
+
+        var audio = GetComponent<AudioSource>();
+        audio.Play();
 
         ModifyHealth(-1);
         damageTaken.Invoke();
@@ -99,9 +103,12 @@ public class LifeBehaviour : MonoBehaviour
     {
         Debug.Log("OhNion");
         var animator = GetComponent<Animator>();
-        animator.SetTrigger("Mort");
+        animator.SetTrigger("Mort");  
         yield return new WaitForSeconds(1);
+        SceneManager.LoadScene("Lose");
+
         Destroy(gameObject);
+
 
     }
     private void ModifyHealth(int modifier)

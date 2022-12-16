@@ -9,9 +9,10 @@ public class EnnemieBehaviourSlowly : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        shooter = GetComponent<Shooter2D>();
-        InvokeRepeating(nameof(Shoot), 0, 2f);
+        shooter = GetComponent<Shooter2D>();     
     }
+
+
 
     private void Shoot()
     {
